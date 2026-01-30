@@ -94,3 +94,40 @@ li { margin: 6px 0; line-height: 1.45; }
   text-transform: uppercase;
   letter-spacing: .08em;
 }
+
+
+/* Base tag (keep neutral) */
+.tag {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+/* Core – neutral gray */
+.skills-group.core .tag {
+  background: #f7f7f7;
+  border-color: #e2e2e2;
+}
+
+/* Data – soft teal */
+.skills-group.data .tag {
+  background: #f2faf8;
+  border-color: #d4ece6;
+}
+
+/* ML / DL – soft blue */
+.skills-group.ml .tag {
+  background: #f2f6ff;
+  border-color: #d6e2ff;
+}
+
+/* Geospatial – soft green */
+.skills-group.geo .tag {
+  background: #f2fbf6;
+  border-color: #d5eadf;
+}
+
+/* Web – soft purple */
+.skills-group.web .tag {
+  background: #f6f3ff;
+  border-color: #e0d9ff;
+}
