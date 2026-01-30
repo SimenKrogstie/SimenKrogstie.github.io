@@ -187,3 +187,10 @@ li { margin: 6px 0; line-height: 1.45; }
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 4px 24px;
 }
+
+/* Dark mode: make all skill tags match card bubbles */
+[data-theme="dark"] .skills-group .tag {
+  background: var(--tag-bg);
+  border-color: var(--tag-border);
+  color: var(--tag-text);
+}
