@@ -153,39 +153,35 @@ body {
 
 .header {
   display: grid;
-  grid-template-columns: 120px 1fr minmax(320px, 380px);
-  grid-template-areas: "toggle title right";
-  gap: 18px;
+  grid-template-columns: 120px 1fr auto;
+  grid-template-areas: "toggle left photo";
+  gap: 24px;
   align-items: center;
 
   border-bottom: 1px solid var(--line);
   padding-bottom: 18px;
 }
 
-.theme-toggle-wrapper {grid-area: toggle; }
+.theme-toggle-wrapper {
+  grid-area: toggle;
+}
+
+.header-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .title {
-  justify-self: center;
-  text-align: center;
-}
-
-.header-right {
-  grid-area: right;
-  max-width: 380px;
-  justify-self: end;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.header-right -links {
-  justify-content: flex-start;
+  text-align: left;
 }
 
 .title h1 {
   margin: 0 0 6px;
   font-size: 34px;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .subtitle {
@@ -218,6 +214,7 @@ body {
 }
 
 .avatar {
+  grid-area: photo;
   width: 200px;
   height: 200px;
   border-radius: 16px;
