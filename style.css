@@ -146,7 +146,7 @@ body {
 
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 90px 1fr auto;
   grid-template-areas: "toggle title right";
   gap: 18px;
   align-items: center;
