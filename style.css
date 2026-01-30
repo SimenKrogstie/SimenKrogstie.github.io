@@ -139,6 +139,13 @@ body {
 }
 
 
+@media (min-width: 721px) {
+  .title h1 {
+    white-space: nowrap;
+  }
+}
+
+
 
 /* =========================
    Header
@@ -146,7 +153,7 @@ body {
 
 .header {
   display: grid;
-  grid-template-columns: 90px 1fr auto;
+  grid-template-columns: 120px 1fr minmax(320px, 380px);
   grid-template-areas: "toggle title right";
   gap: 18px;
   align-items: center;
@@ -158,17 +165,21 @@ body {
 .theme-toggle-wrapper {grid-area: toggle; }
 
 .title {
-  grid-area: title;
   justify-self: center;
   text-align: center;
 }
 
 .header-right {
   grid-area: right;
+  max-width: 380px;
   justify-self: end;
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+.header-right -links {
+  justify-content: flex-start;
 }
 
 .title h1 {
