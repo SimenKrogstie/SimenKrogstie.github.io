@@ -28,7 +28,7 @@ body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial
 .links a:hover { border-bottom-color: var(--muted); }
 
 .avatar {
-  width: 150px !important; height: 150px !important; border-radius: 16px; object-fit: cover; border: 1px solid var(--line);
+  width: 200px !important; height: 200px !important; border-radius: 16px; object-fit: cover; border: 1px solid var(--line);
 }
 
 main section { padding: 18px 0; border-bottom: 1px solid var(--line); }
