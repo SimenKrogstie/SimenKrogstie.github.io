@@ -57,11 +57,6 @@ body {
    ========================= */
 
 #theme-toggle {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 1000;
-
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -97,10 +92,11 @@ body {
 .theme-toggle-label {
   font-size: 12px;
   color: var(--muted);
+  line-height: 1;
 }
 
 @media print {
-  #theme-toggle {
+  #theme-toggle-wrapper {
     display: none !important;
   }
 }
