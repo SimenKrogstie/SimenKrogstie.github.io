@@ -55,7 +55,7 @@ body {
 /* =========================
    Theme toggle button
    ========================= */
-   
+
 .theme-toggle-wrapper {
   position: fixed;
   top: 16px;
@@ -363,3 +363,74 @@ li {
   color: var(--tag-text);
 }
 
+
+/* =========================
+   Mobile layout
+   ========================= */
+
+@media (max-width: 720px) {
+  .container {
+    padding: 18px 14px;
+  }
+
+  /* Header: stack nicely */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  /* Avatar: full width and not huge */
+  .avatar {
+    width: 100%;
+    height: auto;
+    max-width: 320px; /* optional: prevents it from being enormous */
+  }
+
+  /* Title text sizes */
+  .title h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    margin-bottom: 8px;
+  }
+
+  /* Links: make them readable and wrap cleanly */
+  .links {
+    gap: 8px 12px;
+  }
+
+  .links a {
+    display: inline-block;
+  }
+
+  /* Roles: dates under title if needed */
+  .item-head,
+  .role-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* Skills grid: single column */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Theme toggle: keep it from covering header content */
+  .theme-toggle-wrapper {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+
+
+
+.links span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
