@@ -10,13 +10,15 @@
 <body>
   <header class="container header">
 
-    <button id="theme-toggle" class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Toggle theme"> 
-      <span class="theme-switch__track" aria-hidden="true">
-        <span class="theme-switch__icon theme-switch__icon--moon">🌙 Dark Mode</span>
-        <span class="theme-switch__icon theme-switch__icon--sun">☀️ Light Mode</span>
-        <span class="theme-switch__thumb" aria-hidden="true"></span>
-      </span>
-    </button>
+    <div class="theme-toggle-wrapper">
+      <button id="theme-toggle" type="button">
+        Toggle theme
+      </button>
+      <div class="theme-toggle-label">
+        Light / Dark
+      </div>
+    </div>
+
 
     <div class="title">
       <h1>Simen Roko Krogstie</h1> 
@@ -35,8 +37,6 @@
     </div>
     <img class="avatar" src="assets/headshot.jpg" alt="Headshot of Simen R. Krogstie">
   </header>
-
-
 
 
 
@@ -295,6 +295,7 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
+
 <script>
   const toggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
@@ -302,24 +303,26 @@
   function setTheme(theme) {
     root.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-    toggle.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+
+    const label = document.querySelector(".theme-toggle-label");
+    if (label) label.textContent = theme === "dark" ? "Dark mode" : "Light mode";
   }
 
-  // Load saved preference
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
     setTheme(savedTheme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     setTheme("dark");
-  } else {
-    setTheme("light");
   }
 
-  toggle.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme");
-    setTheme(current === "dark" ? "light" : "dark");
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  }
 </script>
+
 
 </body>
 </html>

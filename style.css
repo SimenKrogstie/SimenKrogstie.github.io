@@ -82,6 +82,23 @@ body {
   outline-offset: 3px;
 }
 
+.theme-toggle-wrapper {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
 @media print {
   #theme-toggle {
     display: none !important;
