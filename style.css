@@ -1,3 +1,6 @@
+body { border: 10px solid red; }
+
+
 :root {
   --text: #111;
   --muted: #555;
