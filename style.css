@@ -52,3 +52,31 @@ li { margin: 6px 0; line-height: 1.45; }
 
 .footer { padding-top: 14px; }
 
+
+.org {
+  margin: 18px 0 6x;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.role {
+  padding: 10px 0;
+}
+
+.role-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 10px 0;
+}
+
+.role:first-child h3 {
+  font-weight: 700;
+}
