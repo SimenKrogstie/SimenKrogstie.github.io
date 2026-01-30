@@ -42,6 +42,37 @@
   color: var(--text);
 }
 
+/* Icon container */
+#theme-toggle .icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+
+  font-size: 16px;
+  transition: transform 250ms ease, opacty 250ms ease;
+}
+
+/* Light mode: show moon */
+:root:not([data-theme="dark"]) .sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+:root:not([data-theme="dark"]) .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Dark mode: show sun*/
+[data-theme="dark"] .sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+[data-theme="dark"] .moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }

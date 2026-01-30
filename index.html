@@ -9,7 +9,11 @@
 </head>
 <body>
   <header class="container header">
-    <button id="theme-toggle" aria-label="Toggle dark mode"> 🌙 Toggle Theme</button>
+    <button id="theme-toggle" aria-label="Toggle dark mode"> 
+      <span class="icon sun">☀️ Toggle Night</span>
+      <span class="icon moon">🌙 Toogle Day</span>
+    </button>
+
     <div class="title">
       <h1>Simen Roko Krogstie</h1> 
       <p class="subtitle"> M.Sc. Data Science @ NMBU</p>
@@ -291,19 +295,22 @@
   const toggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
 
+  function setTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+
   // Load saved preference
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    root.setAttribute("data-theme", savedTheme);
+  const saved = localStorage.getItem("theme");
+  if (saved) {
+    setTheme(saved);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    root.setAttribute("data-theme", "dark");
+    setTheme("dark");
   }
 
   toggle.addEventListener("click", () => {
-    const isDark = root.getAttribute("data-theme") === "dark";
-    const newTheme = isDark ? "light" : "dark";
-    root.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
+    const current = root.getAttribute("data-theme");
+    setTheme(current == "dark" ? "light" : "dark");
   });
 </script>
 
