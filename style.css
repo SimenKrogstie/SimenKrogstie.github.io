@@ -57,8 +57,6 @@ body {
    ========================= */
 
 .theme-toggle-wrapper {
-
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,11 +145,30 @@ body {
    ========================= */
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "toggle title right";
   gap: 18px;
   align-items: center;
+
   border-bottom: 1px solid var(--line);
   padding-bottom: 18px;
+}
+
+.theme-toggle-wrapper {grid-area: toggle; }
+
+.title {
+  grid-area: title;
+  justify-self: center;
+  text-align: center;
+}
+
+.header-right {
+  grid-area: right;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .title h1 {
@@ -168,9 +185,15 @@ body {
 .links {
   margin: 0;
   display: flex;
-  gap: 10px;
+  gap: 8px 14px;
   flex-wrap: wrap;
   color: var(--muted);
+}
+
+.links span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .links a {
@@ -189,6 +212,7 @@ body {
   border-radius: 16px;
   object-fit: cover;
   border: 1px solid var(--line);
+  flex: 0 0 auto;
 }
 
 /* =========================
@@ -365,93 +389,44 @@ li {
    Mobile layout
    ========================= */
 
-@media (max-width: 720px) {
-  .container {
-    padding: 18px 14px;
-  }
-
-  /* Header: stack nicely */
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  /* Avatar: full width and not huge */
-  .avatar {
-    width: 100%;
-    height: auto;
-    max-width: 320px; /* optional: prevents it from being enormous */
-  }
-
-  /* Title text sizes */
-  .title h1 {
-    font-size: 28px;
-  }
-
-  .subtitle {
-    margin-bottom: 8px;
-  }
-
-  /* Links: make them readable and wrap cleanly */
-  .links {
-    gap: 8px 12px;
-  }
-
-  .links a {
-    display: inline-block;
-  }
-
-  /* Roles: dates under title if needed */
-  .item-head,
-  .role-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  /* Skills grid: single column */
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* Theme toggle: keep it from covering header content */
-  .theme-toggle-wrapper {
-    top: 10px;
-    left: 10px;
-  }
-}
-
-
-.links span {
-  display: inline-flex;
-  gap: 6px;
-  align-items: center;
-}
-
 
 @media (max-width: 720px) {
+  .theme-toggle-label {
+    display: none;
+  }
+
   .header {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
-  .title {order: 1; }
-  .avatar {
+  .title {order: 1; text-align: left; justify-self: auto; }
+
+  .header-right {
     order: 2;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar {
     width: 100%;
     height: auto;
     max-width: 360px;
   }
-  .links {order: 3; }
 
-  /* Move toggle away from the name on mobile*/
+  .links {
+    gap: 8px 12px;
+  }
+
+  /* Theme toggle button */
   .theme-toggle-wrapper {
-    top: auto;
-    left: auto;
+    position: fixed;
     right: 12px;
     bottom: 12px;
+    left: auto;
+    top: auto;
+    z-index: 1000;
   }
 }
