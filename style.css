@@ -6,6 +6,8 @@
   --line: #e7e7e7;
 
   /*tag tokens (light)*/
+  --tag-bg: #ffffff;
+  --tag-border: var(--line);
   --tag-text: #111111;
 }
 
@@ -17,10 +19,10 @@
   --card: #161a20;
   --line: #2a2f3a;
 
-  /* tag tokens (dark) */
-  --tag-bg: #e6e7eb;
-  --tag-border: #d1d5db
-  --tag-text: #0f1115;
+  /* tag tokens (dark) -match card bubble */
+  --tag-bg: var(--card);
+  --tag-border: var(--line);
+  --tag-text: var(--text);
 }
 
 #theme-toggle {
@@ -82,8 +84,19 @@ li { margin: 6px 0; line-height: 1.45; }
 
 .small { color: var(--muted); font-size: 14px; }
 
-.tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.tag { border: 1px solid var(--line); padding: 6px 10px; border-radius: 999px; background: #fff; font-size: 14px; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 14px;
+}
 
 .footer { padding-top: 14px; }
 
@@ -133,8 +146,8 @@ li { margin: 6px 0; line-height: 1.45; }
 
 /* Base tag (keep neutral) */
 .tag {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
   color: var(--tag-text);
 }
 
