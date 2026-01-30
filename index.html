@@ -11,8 +11,13 @@
   <header class="container header">
 
     <div class="theme-toggle-wrapper">
-      <button id="theme-toggle">Toggle theme</button>
-      <div class="theme-toggle-label">Light / Dark</div>
+      <label class="theme-switch" aria-label="Toggle theme">
+        <input id="theme-toggle" type="checkbox" />
+        <span class="theme-switch__track" aria-hidden="true"></span>
+        <span class="theme-switch__thumb" aria-hidden="true"></span>
+      </label>
+
+      <div class="theme-toggle-label">Light mode</div>
     </div>
 
     <div class="title">
@@ -289,24 +294,31 @@
     root.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
 
+    // Sync UI
+    if (toggle) toggle.checked = theme === "dark";
+
     const label = document.querySelector(".theme-toggle-label");
     if (label) label.textContent = theme === "dark" ? "Dark mode" : "Light mode";
   }
 
+  // Initial theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
     setTheme(savedTheme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     setTheme("dark");
+  } else {
+    setTheme("light");
   }
 
+  // Toggle theme when user flips the switch
   if (toggle) {
-    toggle.addEventListener("click", () => {
-      const current = root.getAttribute("data-theme");
-      setTheme(current === "dark" ? "light" : "dark");
+    toggle.addEventListener("change", () => {
+      setTheme(toggle.checked ? "dark" : "light");
     });
   }
 </script>
+
 
 
 </body>

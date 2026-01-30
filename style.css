@@ -55,28 +55,7 @@ body {
 /* =========================
    Theme toggle button
    ========================= */
-
-#theme-toggle {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 12px;
-
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  cursor: pointer;
-}
-
-#theme-toggle:hover {
-  background: var(--bg);
-}
-
-#theme-toggle:focus-visible {
-  outline: 2px solid var(--text);
-  outline-offset: 3px;
-}
-
+   
 .theme-toggle-wrapper {
   position: fixed;
   top: 16px;
@@ -95,11 +74,76 @@ body {
   line-height: 1;
 }
 
+/* Switch container */
+.theme-switch {
+  position: relative;
+  width: 52px;
+  height: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hide the checkbox but keep it accessible */
+.theme-switch input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Track */
+.theme-switch__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+/* Thumb */
+.theme-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+
+  background: var(--bg);
+  border: 1px solid var(--line);
+  transition: transform 200ms ease;
+  will-change: transform;
+}
+
+/* Checked = dark mode (thumb slides right) */
+.theme-switch input:checked ~ .theme-switch__thumb {
+  transform: translateX(22px);
+}
+
+/* Nice focus (no ugly corner) */
+.theme-switch input:focus-visible ~ .theme-switch__track {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100, 150, 250, 0.35);
+}
+
+/* Hide on print */
 @media print {
-  #theme-toggle-wrapper {
+  .theme-toggle-wrapper {
     display: none !important;
   }
 }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .theme-switch__track,
+  .theme-switch__thumb {
+    transition: none !important;
+  }
+}
+
+
 
 /* =========================
    Header
