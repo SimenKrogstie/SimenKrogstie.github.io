@@ -1,10 +1,26 @@
 :root {
-  --text: #111;
-  --muted: #555;
-  --line: #e7e7e7;
-  --bg: #fff;
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
   --card: #fafafa;
+  --line: #e7e7e7;
+
+  /*tag tokens (light)*/
+  --tag-text: #111111;
 }
+
+
+[data-theme="dark"] {
+  --bg: #0f1115;
+  --text: #e6e6e6;
+  --muted: #a0a0a0;
+  --card: #161a20;
+  --line: #2a2f3a;
+
+  /* tag tokesn (dark) */
+  --tag-text: #0f1115;
+}
+
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
@@ -100,6 +116,7 @@ li { margin: 6px 0; line-height: 1.45; }
 .tag {
   background: #fff;
   border: 1px solid var(--line);
+  color: var(--tag-text);
 }
 
 /* Core – neutral gray */
@@ -137,22 +154,4 @@ li { margin: 6px 0; line-height: 1.45; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 4px 24px;
-}
-
-
-:root {
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #555555;
-  --card: #fafafa;
-  --line: #e7e7e7;
-}
-
-
-[data-theme="dark"] {
-  --bg: #0f1115;
-  --text: #e6e6e6;
-  --muted: #a0a0a0;
-  --card: #161a20;
-  --line: #2a2f3a;
 }
