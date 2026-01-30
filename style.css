@@ -138,3 +138,21 @@ li { margin: 6px 0; line-height: 1.45; }
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 4px 24px;
 }
+
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --card: #fafafa;
+  --line: #e7e7e7;
+}
+
+
+[data-theme="dark"] {
+  --bg: #0f1115;
+  --text: #e6e6e6;
+  --muted: #a0a0a0;
+  --card: #161a20;
+  --line: #2a2f3a;
+}
