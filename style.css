@@ -80,3 +80,17 @@ li { margin: 6px 0; line-height: 1.45; }
 .role:first-child h3 {
   font-weight: 700;
 }
+
+
+.skills-group {
+  margin: 14px 0 18px;
+}
+
+.skills-label {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
