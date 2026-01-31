@@ -441,7 +441,7 @@ li {
   }
 
   .header > .links {
-    order: 3 !important;
+    order: 3 !important
   }
 
   /* Hide label on mobile */
