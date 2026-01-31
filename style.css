@@ -433,6 +433,7 @@ li {
 
   /* Move theme toggle away from content */
   .theme-toggle-wrapper {
+    order: 0;
     position: fixed;
     right: 12px;
     bottom: 12px;
