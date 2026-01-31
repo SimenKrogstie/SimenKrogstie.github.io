@@ -398,49 +398,52 @@ li {
    ========================= */
 @media (max-width: 720px) {
   .header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  /* Main block first */
-  .header-left {
-    order: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Make title left-aligned on mobile */
-  .title {
-    order: 1;
-    text-align: left;
-    justify-self: auto;
-  }
-
-  /* Put photo after */
-  .avatar {
-    order: 2;
-    width: 100%;
-    height: auto;
-    max-width: 360px;
-  }
-
-  /* Contact links after photo */ 
-  .links {
-    order: 3;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
   }
 
   /* Move theme toggle away from content */
   .theme-toggle-wrapper {
-    order: 0;
-    position: fixed;
-    right: 12px;
-    bottom: 12px;
-    left: auto;
-    top: auto;
-    z-index: 1000;
+    order: 0 !important;
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 1000 !important;
   }
+
+  /* Main block first */
+  .header-left {
+    order: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Make title left-aligned on mobile */
+  .header-left .title {
+    order: 1 !important;
+    text-align: left !important;
+  }
+ 
+  .header-left .links {
+    order: 3 !important;
+  }
+
+  /* Put photo after header-left */
+  .avatar {
+    order: 2 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 360px !important;
+  }
+
+  .header > .links {
+    order: 3 !important;
+  }
+
   /* Hide label on mobile */
   .theme-toggle-label {
     display: none;
