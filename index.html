@@ -11,15 +11,20 @@
 <body>
   <header class="container header">
 
-    <a class="lang-toggle" href="index-no.html"="Switch to English version">English</a>
+    <div class="header-controls">
+      <a class="lang-toggle" href="index-no.html" aria-label="Switch to Norwegian"></a>
+        <span class="lang-toggle__text lang-toggle__text--left">EN</span>
+        <span class="lang-toggle__text lang-toggle__text--right">NO</span>
+      </a>
 
-    <div class="theme-toggle-wrapper">
-      <label class="theme-switch" aria-label="toggle-theme">
-        <input id="theme-toggle" type="checkbox" />
-        <span class="theme-switch__track" aria-hidden="true"></span>
-        <span class="theme-switch__thumb" aria-hidden="true"></span>
-      </label>
-      <div class="theme-toggle-label">Light mode</div>
+      <div class="theme-toggle-wrapper">
+        <label class="theme-switch" aria-label="toggle-theme">
+          <input id="theme-toggle" type="checkbox" />
+          <span class="theme-switch__track" aria-hidden="true"></span>
+          <span class="theme-switch__thumb" aria-hidden="true"></span>
+        </label>
+        <div class="theme-toggle-label">Light mode</div>
+      </div>
     </div>
 
     <div class="header-left">
