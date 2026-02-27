@@ -1,6 +1,4 @@
-/* =========================
-   Theme tokens
-   ========================= */
+/* Theme tokens */
 
 :root {
   --bg: #ffffff;
@@ -28,10 +26,7 @@
   --tag-text: var(--text);
 }
 
-/* =========================
-   Reset / base
-   ========================= */
-
+/* Reset / base */
 * { box-sizing: border-box; }
 
 html, body {
@@ -52,10 +47,7 @@ body {
   padding: 28px 18px;
 }
 
-/* =========================
-   Theme toggle button
-   ========================= */
-
+/* Theme toggle button */
 .theme-toggle-wrapper {
   display: flex;
   flex-direction: column;
@@ -145,12 +137,21 @@ body {
   }
 }
 
+/* Language switcher */
+.lang-switch {
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid var(--text-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+.lang-switch:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
 
-
-/* =========================
-   Header
-   ========================= */
-
+/* Header */
 .header {
   display: grid;
   grid-template-columns: 120px 1fr auto;
@@ -160,10 +161,6 @@ body {
 
   border-bottom: 1px solid var(--line);
   padding-bottom: 18px;
-}
-
-.theme-toggle-wrapper {
-  grid-area: toggle;
 }
 
 .header-left {
@@ -223,10 +220,7 @@ body {
   flex: 0 0 auto;
 }
 
-/* =========================
-   Sections / typography
-   ========================= */
-
+/* Sections / typography */
 main section {
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
@@ -277,9 +271,7 @@ li {
   padding-top: 14px;
 }
 
-/* =========================
-   Cards / roles
-   ========================= */
+/* Cards / roles */
 
 .item {
   background: var(--card);
@@ -319,10 +311,7 @@ li {
   font-weight: 700;
 }
 
-/* =========================
-   Skills
-   ========================= */
-
+/* Skills */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -385,7 +374,7 @@ li {
   border-color: #e0d9ff;
 }
 
-/* Dark mode: force tags to match card bubbles (overrides category colors) */
+/* Dark mode: force tags to match card bubbles */
 [data-theme="dark"] .skills-group .tag {
   background: var(--tag-bg);
   border-color: var(--tag-border);
@@ -393,33 +382,25 @@ li {
 }
 
 
-/* =========================
-   Mobile layout
-   ========================= */
+/* Mobile layout */
 @media (max-width: 720px) {
   .header {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
-  /* Move theme toggle away from content */
+  /* Keep toggle in header */
   .theme-toggle-wrapper {
-    order: 0 !important;
-    position: fixed !important;
-    right: 12px !important;
-    bottom: 12px !important;
-    left: auto !important;
-    top: auto !important;
-    z-index: 1000 !important;
+    order: 0;
+    position: static;
+    align-self: flex-start;
   }
 
   /* Main block first */
   .header-left {
-    order: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
+    order: 1;
   }
 
   /* Make title left-aligned on mobile */
@@ -434,9 +415,9 @@ li {
 
   /* Put photo after header-left */
   .avatar {
-    order: 2 !important;
-    width: 100% !important;
-    height: auto !important;
+    order: 1;
+    width: 100%;
+    height: auto;
     max-width: 360px !important;
   }
 
