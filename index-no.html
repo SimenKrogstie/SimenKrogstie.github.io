@@ -8,29 +8,34 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
-<body>
-  <header class="container header">
-
+  <body>
+    <header class="container header">
     <div class="header-controls">
-      <a class="lang-toggle" href="index.html" aria-label="Switch to english"></a>
-        <span class="lang-toggle__text lang-toggle__text--left">EN</span>
-        <span class="lang-toggle__text lang-toggle__text--right">NO</span>
-      </a>
+     
+      <div class="lang-toggle-wrapper">
+        <label class="theme-switch" aria-label="toggle-language">
+          <input id="lang-toggle" type="checkbox" checked />
+          <span class="theme-switch__track" aria-hidden="true"></span>
+          <span class="theme-switch__thumb" aria-hidden="true"></span>
+        </label>
+        <div class="toggle-label" id="lang-label">Norsk</div>
+      </div>
 
+      
       <div class="theme-toggle-wrapper">
         <label class="theme-switch" aria-label="toggle-theme">
           <input id="theme-toggle" type="checkbox" />
           <span class="theme-switch__track" aria-hidden="true"></span>
           <span class="theme-switch__thumb" aria-hidden="true"></span>
         </label>
-        <div class="theme-toggle-label">Light mode</div>
+        <div class="toggle-label" id="theme-label">Lys modus</div>
       </div>
     </div>
-    
+
     <div class="header-left">
       <div class="title">
-        <h1>Simen Roko Krogstie</h1> 
-        <p class="subtitle"> M.Sc. Data Science @ NMBU</p>
+        <h1>Simen Roko Krogstie</h1>
+        <p class="subtitle">M.Sc. Data Science @ NMBU</p>
       </div>
 
       <p class="links">
@@ -38,14 +43,12 @@
         <span>☎️ <a href="tel:+4791590886">+47 91 59 08 86</a></span>
         <span>🔗 <a href="https://www.linkedin.com/in/simen-krogstie/">LinkedIn</a></span>
         <span>🔗 <a href="https://github.com/SimenKrogstie">GitHub</a></span>
-        <span>📄 <a href="assets/cv-no.pdf">PDF av CV her</a></span>
+        <span>📄 <a href="assets/cv.pdf">PDF av CV her</a></span>
       </p>
     </div>
 
-    <img class="avatar" src="assets/headshot.jpg" alt="Headshot of Simen R. Krogstie">
+    <img class="avatar" src="assets/headshot.jpg" alt="Headshot of Simen R. Krogstie" />
   </header>
-
-
 
   <main class="container">
     <section>
@@ -55,9 +58,6 @@
         Erfaring med maskinlæring, dyp læring, bildeanalyse, romlig analyse og automatisering av GIS-prosesser.
       </p>
     </section>
-
-
-
 
     <section>
       <h2>Prosjekter</h2>
@@ -76,9 +76,6 @@
         </ul>
       </div>
     </section>
-
-
-
 
     <section>
       <h2>Utdanning</h2>
@@ -111,8 +108,6 @@
       </div>
     </section>
 
-
-  
     <section>
       <h2>Arbeidserfaring</h2>
 
@@ -204,8 +199,6 @@
       </div>
     </section>
 
-
-
     <section>
       <h2>Teknisk kompetanse</h2>
 
@@ -262,8 +255,6 @@
 
       </div>
     </section>
-
-    
   
     <footer class="footer">
       <p class="small">© <span id="year"></span> Simen Roko Krogstie · Laget med GitHub Pages</p>
