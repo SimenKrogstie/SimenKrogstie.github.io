@@ -11,6 +11,7 @@ It is intended as a lightweight, always-up-to-date alternative to a traditional 
 ## Tech stack
 - HTML
 - CSS
+- JavaScript
 - GitHub Pages
 
 ## Updating the site
