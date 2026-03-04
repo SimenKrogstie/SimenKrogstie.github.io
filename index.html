@@ -10,42 +10,45 @@
 </head>
 <body>
   <header class="container header">
-
-    <div class="header-controls">
-      <a class="lang-toggle" href="index-no.html" aria-label="Switch to Norwegian"></a>
-        <span class="lang-toggle__text lang-toggle__text--left">EN</span>
-        <span class="lang-toggle__text lang-toggle__text--right">NO</span>
-      </a>
-
-      <div class="theme-toggle-wrapper">
-        <label class="theme-switch" aria-label="toggle-theme">
-          <input id="theme-toggle" type="checkbox" />
-          <span class="theme-switch__track" aria-hidden="true"></span>
-          <span class="theme-switch__thumb" aria-hidden="true"></span>
-        </label>
-        <div class="theme-toggle-label">Light mode</div>
-      </div>
+  <div class="header-controls">
+    
+    <div class="lang-toggle-wrapper">
+      <label class="theme-switch" aria-label="toggle-language">
+        <input id="lang-toggle" type="checkbox" />
+        <span class="theme-switch__track" aria-hidden="true"></span>
+        <span class="theme-switch__thumb" aria-hidden="true"></span>
+      </label>
+      <div class="toggle-label">English</div>
     </div>
 
-    <div class="header-left">
-      <div class="title">
-        <h1>Simen Roko Krogstie</h1> 
-        <p class="subtitle"> M.Sc. Data Science @ NMBU</p>
-      </div>
+    <div class="theme-toggle-wrapper">
+      <label class="theme-switch" aria-label="toggle-theme">
+        <input id="theme-toggle" type="checkbox" />
+        <span class="theme-switch__track" aria-hidden="true"></span>
+        <span class="theme-switch__thumb" aria-hidden="true"></span>
+      </label>
+      <div class="toggle-label" id="theme-label">Light mode</div>
+    </div>
+  </div>
 
-      <p class="links">
-        <span>📩 <a href="mailto:SimenKrogstie@gmail.com">SimenKrogstie@gmail.com</a></span>
-        <span>☎️ <a href="tel:+4791590886">+47 91 59 08 86</a></span>
-        <span>🔗 <a href="https://www.linkedin.com/in/simen-krogstie/">LinkedIn</a></span>
-        <span>🔗 <a href="https://github.com/SimenKrogstie">GitHub</a></span>
-        <span>📄 <a href="assets/cv.pdf">PDF of CV here</a></span>
-      </p>
+  <div class="header-left">
+    <div class="title">
+      <h1>Simen Roko Krogstie</h1>
+      <p class="subtitle">M.Sc. Data Science @ NMBU</p>
     </div>
 
-    <img class="avatar" src="assets/headshot.jpg" alt="Headshot of Simen R. Krogstie">
-  </header>
+    <p class="links">
+      <span>📩 <a href="mailto:SimenKrogstie@gmail.com">SimenKrogstie@gmail.com</a></span>
+      <span>☎️ <a href="tel:+4791590886">+47 91 59 08 86</a></span>
+      <span>🔗 <a href="https://www.linkedin.com/in/simen-krogstie/">LinkedIn</a></span>
+      <span>🔗 <a href="https://github.com/SimenKrogstie">GitHub</a></span>
+      <span>📄 <a href="assets/cv.pdf">PDF of CV here</a></span>
+    </p>
+  </div>
 
-
+  <img class="avatar" src="assets/headshot.jpg" alt="Headshot of Simen R. Krogstie" />
+</header>
+  
 
   <main class="container">
     <section>
@@ -56,8 +59,6 @@
         automation of GIS processes.
       </p>
     </section>
-
-
 
 
     <section>
@@ -83,9 +84,6 @@
         </ul>
       </div>
     </section>
-
-
-
 
     <section>
       <h2>Education</h2>
@@ -118,8 +116,7 @@
         </div>
       </div>
     </section>
-
-
+  
   
     <section>
       <h2>Work Experience</h2>
@@ -176,9 +173,6 @@
     </section>
 
 
-
-
-
     <section>
       <h2>Volunteering</h2> 
       
@@ -214,7 +208,6 @@
 
       </div>
     </section>
-
 
 
     <section>
@@ -274,23 +267,10 @@
       </div>
     </section>
 
-    
-  
     <footer class="footer">
       <p class="small">© <span id="year"></span> Simen Roko Krogstie · Built with GitHub Pages</p>
     </footer>
   </main>
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

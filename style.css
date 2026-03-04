@@ -20,13 +20,14 @@
   --card: #161a20;
   --line: #2a2f3a;
 
-  /* Tag tokens (dark) — match card bubble */
+  /* Tag tokens (dark) */
   --tag-bg: var(--card);
   --tag-border: var(--line);
   --tag-text: var(--text);
 }
 
 /* Reset / base */
+
 * { box-sizing: border-box; }
 
 html, body {
@@ -47,7 +48,9 @@ body {
   padding: 28px 18px;
 }
 
-/* Theme toggle button */
+/* Toggle wrappers */
+
+.lang-toggle-wrapper,
 .theme-toggle-wrapper {
   display: flex;
   flex-direction: column;
@@ -55,13 +58,14 @@ body {
   gap: 6px;
 }
 
-.theme-toggle-label {
+.toggle-label {
   font-size: 12px;
   color: var(--muted);
   line-height: 1;
 }
 
 /* Switch container */
+
 .theme-switch {
   position: relative;
   width: 52px;
@@ -70,7 +74,8 @@ body {
   user-select: none;
 }
 
-/* Hide the checkbox but keep it accessible */
+/* Hide checkbox */
+
 .theme-switch input {
   position: absolute;
   inset: 0;
@@ -80,6 +85,7 @@ body {
 }
 
 /* Track */
+
 .theme-switch__track {
   position: absolute;
   inset: 0;
@@ -90,6 +96,7 @@ body {
 }
 
 /* Thumb */
+
 .theme-switch__thumb {
   position: absolute;
   top: 3px;
@@ -97,25 +104,27 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 999px;
-
   background: var(--bg);
   border: 1px solid var(--line);
   transition: transform 200ms ease;
   will-change: transform;
 }
 
-/* Checked = dark mode (thumb slides right) */
+/* Checked state */
+
 .theme-switch input:checked ~ .theme-switch__thumb {
   transform: translateX(22px);
 }
 
-/* Nice focus (no ugly corner) */
+/* Focus */
+
 .theme-switch input:focus-visible ~ .theme-switch__track {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(100, 150, 250, 0.35);
+  box-shadow: 0 0 0 3px rgba(100,150,250,.35);
 }
 
-/* Hide on print */
+/* Print */
+
 @media print {
   .theme-toggle-wrapper {
     display: none !important;
@@ -123,6 +132,7 @@ body {
 }
 
 /* Reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
   .theme-switch__track,
   .theme-switch__thumb {
@@ -130,68 +140,20 @@ body {
   }
 }
 
-
 @media (min-width: 721px) {
   .title h1 {
     white-space: nowrap;
   }
 }
 
-
-/* Language toggle*/
-.lang-toggle {
-  position: relative;
-  width: 52px;
-  height: 30px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--card);
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 7px;
-  text-decoration: none;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1;
-  user-select: none;
-}
-
-.lang-toggle::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  transition: transform 200ms ease;
-}
-
-html[lang="no"] .lang-toggle::before {
-  transform: translateX(22px);
-}
-
-.lang-toggle__text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-html[lang="en"] .lang-toggle__text--left { color: var(--text); }
-html[lang="no"] .lang-toggle__text--right { color: var(--text); }
-
 /* Header */
+
 .header {
   display: grid;
   grid-template-columns: 120px 1fr auto;
   grid-template-areas: "toggle left photo";
   gap: 24px;
   align-items: center;
-
   border-bottom: 1px solid var(--line);
   padding-bottom: 18px;
 }
@@ -261,7 +223,8 @@ html[lang="no"] .lang-toggle__text--right { color: var(--text); }
   flex: 0 0 auto;
 }
 
-/* Sections / typography */
+/* Sections */
+
 main section {
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
@@ -275,7 +238,7 @@ h2 {
   margin: 0 0 12px;
   font-size: 18px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: .08em;
   color: var(--muted);
 }
 
@@ -312,7 +275,7 @@ li {
   padding-top: 14px;
 }
 
-/* Cards / roles */
+/* Cards */
 
 .item {
   background: var(--card);
@@ -332,7 +295,7 @@ li {
 }
 
 .org {
-  margin: 18px 0 6px; /* fixed '6x' -> '6px' */
+  margin: 18px 0 6px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -347,15 +310,15 @@ li {
   margin: 10px 0;
 }
 
-/* highlight the first role (optional) */
 .role:first-child h3 {
   font-weight: 700;
 }
 
 /* Skills */
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
   gap: 4px 24px;
 }
 
@@ -369,7 +332,7 @@ li {
   font-weight: 600;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: .08em;
 }
 
 .tags {
@@ -378,18 +341,17 @@ li {
   gap: 10px;
 }
 
-/* Base tag */
 .tag {
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 14px;
-
   background: var(--tag-bg);
   border: 1px solid var(--tag-border);
   color: var(--tag-text);
 }
 
-/* Category colors (light mode only) */
+/* Category colors */
+
 .skills-group.core .tag {
   background: #f7f7f7;
   border-color: #e2e2e2;
@@ -415,16 +377,16 @@ li {
   border-color: #e0d9ff;
 }
 
-/* Dark mode: force tags to match card bubbles */
 [data-theme="dark"] .skills-group .tag {
   background: var(--tag-bg);
   border-color: var(--tag-border);
   color: var(--tag-text);
 }
 
+/* Mobile */
 
-/* Mobile layout */
 @media (max-width: 720px) {
+
   .header {
     display: flex;
     flex-direction: column;
@@ -435,29 +397,26 @@ li {
   .header-controls {
     align-items: flex-start;
   }
-  /* Keep toggle in header */
+
   .theme-toggle-wrapper {
     order: 0;
     position: static;
     align-self: flex-start;
   }
 
-  /* Main block first */
   .header-left {
     order: 1;
   }
 
-  /* Make title left-aligned on mobile */
   .header-left .title {
     order: 1 !important;
     text-align: left !important;
   }
- 
+
   .header-left .links {
     order: 3 !important;
   }
 
-  /* Put photo after header-left */
   .avatar {
     order: 1;
     width: 100%;
@@ -466,11 +425,11 @@ li {
   }
 
   .header > .links {
-    order: 3 !important
+    order: 3 !important;
   }
 
-  /* Hide label on mobile */
-  .theme-toggle-label {
+  /* Hide labels on mobile */
+  .toggle-label {
     display: none;
   }
 }
