@@ -47,3 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+  // Togglebutton for sidebar
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("closed");
+}

@@ -433,3 +433,55 @@ li {
     display: none;
   }
 }
+
+
+/* Sidebar */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background: #333;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #555;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 220px;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.sidebar.closed {
+    width: 0;
+}
+
+.content {
+    transition: margin-left 0.3s;
+}
