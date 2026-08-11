@@ -1,5 +1,3 @@
-/*
-
 /* Theme tokens */
 
 :root {
@@ -587,19 +585,40 @@ body {
 .topnav-links a.active {
   color: var(--text);
   font-weight: 600;
-  border-bottom-color: var(--text);
 }
 
-.topnav-links a.lang-link {
+.topnav-links a.lang-link,
+.topnav-links button.lang-link {
   margin-left: 6px;
   padding-left: 20px;
   border-left: 1px solid var(--line);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  background: none;
   color: var(--text);
-  font-weight: 600;
+  font: inherit;
+  cursor: pointer;
 }
 
-.topnav-links a.lang-link:hover {
+.topnav-links a.lang-link:hover,
+.topnav-links button.lang-link:hover {
   color: var(--muted);
+}
+
+.topnav-links .icon-btn {
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--line);
 }
 
 /* ===================== About page layout ===================== */
@@ -607,7 +626,7 @@ body {
 .page-layout {
   max-width: 1040px;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr;
   gap: 48px;
   align-items: start;
 }
@@ -673,6 +692,53 @@ body {
   border: 1px solid var(--line);
   display: block;
   margin-bottom: 28px;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0) 55%);
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 16px;
+  z-index: 1;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: -0.02em;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
  
 .content-section {
