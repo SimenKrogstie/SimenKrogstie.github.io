@@ -435,7 +435,8 @@ li {
 }
 
 
-/* Sidebar */
+/* Sidebar (legacy, unused) */
+/*
 body {
     margin: 0;
     font-family: Arial, sans-serif;
