@@ -532,7 +532,18 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
 }
- 
+
+body.sticky-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+body.sticky-footer > main {
+  width: 100%;
+}
+
 .container {
   max-width: 860px;
   margin: 0 auto;
@@ -1102,9 +1113,14 @@ li {
 }
  
 .footer {
-  padding-top: 14px;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
 }
- 
+
+.footer .container {
+  max-width: 1040px;
+  padding: 4px 18px;
+}
 /* Cards */
  
 .item {
