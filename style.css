@@ -615,6 +615,13 @@ body.sticky-footer > main {
   cursor: pointer;
 }
 
+.topnav-links button.lang-link {
+  font-size: 14px;
+  line-height: normal;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .topnav-links a.lang-link:hover,
 .topnav-links button.lang-link:hover {
   color: var(--muted);
