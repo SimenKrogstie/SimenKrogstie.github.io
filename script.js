@@ -42,6 +42,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Mobile nav toggle (hamburger menu)
+  const navToggle = document.getElementById("nav-toggle");
+  const topnavLinks = document.getElementById("topnav-links");
+  const NAV_ICON_PATHS = {
+    // Material Symbols "menu" / "close", filled variant, viewBox 0 -960 960 960
+    menu: "M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z",
+    close: "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z",
+  };
+  function navIconSvg(icon) {
+    return `<svg viewBox="0 -960 960 960" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="${NAV_ICON_PATHS[icon]}"/></svg>`;
+  }
+  if (navToggle && topnavLinks) {
+    const isNo = root.lang === "no";
+    const setNavOpen = (open) => {
+      topnavLinks.classList.toggle("open", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.innerHTML = navIconSvg(open ? "close" : "menu");
+      navToggle.setAttribute("aria-label", open ? (isNo ? "Lukk meny" : "Close menu") : (isNo ? "Åpne meny" : "Open menu"));
+    };
+    setNavOpen(false);
+    navToggle.addEventListener("click", () => {
+      setNavOpen(!topnavLinks.classList.contains("open"));
+    });
+    topnavLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setNavOpen(false));
+    });
+  }
+
   // Sidebar scrollspy: highlights the "On this page" link for the section
   // currently in view. Only runs on pages that have a #toc-list sidebar.
   const tocList = document.getElementById("toc-list");

@@ -635,6 +635,64 @@ body.sticky-footer > main {
   background: var(--line);
 }
 
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background: var(--line);
+}
+
+@media (max-width: 640px) {
+  .topnav-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .topnav-links {
+    display: none;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 20px;
+    padding-top: 16px;
+  }
+
+  .topnav-links.open {
+    display: flex;
+  }
+
+  .topnav-links a:not(.lang-link) {
+    flex-basis: 100%;
+  }
+
+  .topnav-links a.lang-link,
+  .topnav-links button.lang-link {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .topnav-links a.lang-link {
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+}
+
 /* ===================== About page layout ===================== */
  
 .page-layout {
