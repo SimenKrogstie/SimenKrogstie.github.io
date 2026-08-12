@@ -588,6 +588,7 @@ body.sticky-footer > main {
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
+  line-height: 1;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
 }
@@ -617,7 +618,7 @@ body.sticky-footer > main {
 
 .topnav-links button.lang-link {
   font-size: 14px;
-  line-height: normal;
+  line-height: 1;
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -693,9 +694,11 @@ body.sticky-footer > main {
     border-left: none;
   }
 
-  .topnav-links a.lang-link {
+  .topnav-links a.lang-link,
+  .topnav-links button.lang-link {
     margin-top: 6px;
     padding-top: 12px;
+    padding-bottom: 0;
     border-top: 1px solid var(--line);
   }
 }
