@@ -1,24 +1,26 @@
 /* Theme tokens */
 
 :root {
-  --bg: #ffffff;
+  --bg: #fdfcfa;
   --text: #111111;
-  --muted: #555555;
-  --card: #fafafa;
-  --line: #e7e7e7;
+  --muted: #5f5f5c;
+  --name: #4a4a46;
+  --card: #faf9f6;
+  --line: #eeece6;
 
   /* Tag tokens (light) */
-  --tag-bg: #ffffff;
+  --tag-bg: #faf9f6;
   --tag-border: var(--line);
   --tag-text: #111111;
 }
 
 [data-theme="dark"] {
-  --bg: #0f1115;
+  --bg: #242426;
   --text: #e6e6e6;
   --muted: #a0a0a0;
-  --card: #161a20;
-  --line: #2a2f3a;
+  --name: #d0d0d0;
+  --card: #2c2c2f;
+  --line: #3d3d40;
 
   /* Tag tokens (dark) */
   --tag-bg: var(--card);
@@ -436,25 +438,27 @@ li {
 
  
 :root {
-  --bg: #ffffff;
+  --bg: #fdfcfa;
   --text: #111111;
-  --muted: #555555;
-  --card: #fafafa;
-  --line: #e7e7e7;
- 
+  --muted: #5f5f5c;
+  --name: #4a4a46;
+  --card: #faf9f6;
+  --line: #eeece6;
+
   /* Tag tokens (light) */
-  --tag-bg: #ffffff;
+  --tag-bg: #faf9f6;
   --tag-border: var(--line);
   --tag-text: #111111;
 }
- 
+
 [data-theme="dark"] {
-  --bg: #0f1115;
+  --bg: #242426;
   --text: #e6e6e6;
   --muted: #a0a0a0;
-  --card: #161a20;
-  --line: #2a2f3a;
- 
+  --name: #d0d0d0;
+  --card: #2c2c2f;
+  --line: #3d3d40;
+
   /* Tag tokens (dark) */
   --tag-bg: var(--card);
   --tag-border: var(--line);
@@ -516,7 +520,7 @@ body.sticky-footer > main {
 .topnav-name {
   font-size: 18px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--name);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -564,13 +568,15 @@ body.sticky-footer > main {
   cursor: pointer;
 }
 
+#theme-toggle {
+  color: var(--name);
+}
+
 .topnav-utils a.lang-link {
   text-decoration: none;
   font-size: 14px;
   line-height: 1;
   padding: 4px 9px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
 }
 
 .topnav-utils button.lang-link {
@@ -590,6 +596,15 @@ body.sticky-footer > main {
   align-items: center;
 }
 
+.topnav-utils .home-link {
+  display: none;
+  color: var(--text);
+}
+
+.topnav-utils .home-link .icon-circle {
+  border: none;
+}
+
 .icon-circle {
   display: inline-flex;
   align-items: center;
@@ -597,7 +612,6 @@ body.sticky-footer > main {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid var(--line);
   background: none;
 }
 
@@ -644,8 +658,22 @@ body.sticky-footer > main {
   .topnav-utils {
     order: 1;
     flex-shrink: 0;
+    gap: 4px;
     padding-left: 0;
     border-left: none;
+  }
+
+  .topnav-utils .home-link {
+    display: inline-flex;
+    order: 3;
+  }
+
+  .topnav-utils a.lang-link {
+    order: 2;
+  }
+
+  .topnav-utils button.lang-link {
+    order: 1;
   }
 
   .topnav-links {
@@ -665,6 +693,10 @@ body.sticky-footer > main {
 
   .topnav-links a {
     flex-basis: 100%;
+  }
+
+  #topnav-links a:first-child {
+    display: none;
   }
 }
 
@@ -811,6 +843,7 @@ body.sticky-footer > main {
 
 .quick-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   margin: 0 0 36px;
 }
@@ -820,7 +853,8 @@ body.sticky-footer > main {
   text-decoration: none;
   padding: 4px 9px;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .quick-links a:hover {
@@ -868,6 +902,11 @@ body.sticky-footer > main {
   object-fit: contain;
 }
 
+.logo-badge img[src*="tet_digital_logo"] {
+  width: 105%;
+  height: 105%;
+}
+
 .content-section {
   padding: 20px 0;
   scroll-margin-top: 88px; /* keeps anchored headings clear of the sticky topnav */
@@ -877,10 +916,16 @@ body.sticky-footer > main {
   margin: 0 0 16px;
   font-size: 30px;
   letter-spacing: -0.02em;
+  color: var(--name);
 }
- 
+
 .content-section h2 {
   margin: 0 0 12px;
+  color: var(--name);
+}
+
+.content-section h3 {
+  color: var(--name);
 }
  
 .facts-list {
