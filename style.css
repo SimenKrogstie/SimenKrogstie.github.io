@@ -1263,9 +1263,78 @@ li {
 .role:first-child h3 {
   font-weight: 700;
 }
- 
+
+/* Contact links */
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0 0;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 150ms ease;
+}
+
+.contact-link:hover {
+  border-color: var(--muted);
+}
+
+.contact-link:hover .contact-link-arrow {
+  color: var(--text);
+}
+
+.contact-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.contact-link-icon--github {
+  background: #3a3a3a;
+  border-radius: 50%;
+}
+
+.contact-link-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.contact-link-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.contact-link-value {
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.contact-link-arrow {
+  margin-left: auto;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
 /* Skills */
- 
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
