@@ -3,6 +3,7 @@
 This repository contains the source code for my personal CV website, hosted using GitHub Pages.
 
 🌐 **Live site:** https://simenkrogstie.github.io/
+
 ![QR Code](assets/qr_code.png)
 
 ## About
