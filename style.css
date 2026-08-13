@@ -434,62 +434,6 @@ li {
   }
 }
 
-
-/* Sidebar (legacy, unused) */
-/*
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 220px;
-    height: 100vh;
-    background: #333;
-    color: white;
-    padding-top: 20px;
-}
-
-.sidebar h2 {
-    text-align: center;
-}
-
-.sidebar a {
-    display: block;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background: #555;
-}
-
-.content {
-    margin-left: 220px;
-    padding: 20px;
-}
-
-.sidebar {
-    width: 220px;
-    transition: width 0.3s;
-    overflow: hidden;
-}
-
-.sidebar.closed {
-    width: 0;
-}
-
-.content {
-    transition: margin-left 0.3s;
-}
-*/
-
-
-/* From CLAUDE */
  
 :root {
   --bg: #ffffff;
@@ -582,8 +526,9 @@ body.sticky-footer > main {
   align-items: center;
   gap: 22px;
   flex-wrap: wrap;
+  margin-left: auto;
 }
- 
+
 .topnav-links a {
   color: var(--muted);
   text-decoration: none;
@@ -592,43 +537,55 @@ body.sticky-footer > main {
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
 }
- 
+
 .topnav-links a:hover {
   color: var(--text);
 }
- 
+
 .topnav-links a.active {
   color: var(--text);
   font-weight: 600;
 }
 
-.topnav-links a.lang-link,
-.topnav-links button.lang-link {
-  margin-left: 6px;
-  padding-left: 20px;
+.topnav-utils {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 16px;
   border-left: 1px solid var(--line);
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
+}
+
+.topnav-utils a.lang-link,
+.topnav-utils button.lang-link {
+  border: none;
   background: none;
   color: var(--text);
   font: inherit;
   cursor: pointer;
 }
 
-.topnav-links button.lang-link {
+.topnav-utils a.lang-link {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.topnav-utils button.lang-link {
   font-size: 14px;
   line-height: 1;
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.topnav-links a.lang-link:hover,
-.topnav-links button.lang-link:hover {
+.topnav-utils a.lang-link:hover,
+.topnav-utils button.lang-link:hover {
   color: var(--muted);
 }
 
-.topnav-links .icon-btn {
+.topnav-utils .icon-btn {
   display: inline-flex;
   align-items: center;
 }
@@ -640,7 +597,8 @@ body.sticky-footer > main {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--line);
+  border: 1px solid var(--line);
+  background: none;
 }
 
 .nav-toggle {
@@ -664,18 +622,40 @@ body.sticky-footer > main {
 @media (max-width: 640px) {
   .topnav-inner {
     flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .topnav-name {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 15px;
+    line-height: 1.25;
+    white-space: normal;
   }
 
   .nav-toggle {
     display: inline-flex;
+    order: 2;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .topnav-utils {
+    order: 1;
+    flex-shrink: 0;
+    padding-left: 0;
+    border-left: none;
   }
 
   .topnav-links {
+    order: 3;
+    margin-left: 0;
     display: none;
     flex-basis: 100%;
     flex-wrap: wrap;
     align-items: center;
-    gap: 14px 20px;
+    gap: 14px;
     padding-top: 16px;
   }
 
@@ -683,23 +663,8 @@ body.sticky-footer > main {
     display: flex;
   }
 
-  .topnav-links a:not(.lang-link) {
+  .topnav-links a {
     flex-basis: 100%;
-  }
-
-  .topnav-links a.lang-link,
-  .topnav-links button.lang-link {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: none;
-  }
-
-  .topnav-links a.lang-link,
-  .topnav-links button.lang-link {
-    margin-top: 6px;
-    padding-top: 12px;
-    padding-bottom: 0;
-    border-top: 1px solid var(--line);
   }
 }
 
@@ -804,7 +769,7 @@ body.sticky-footer > main {
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: 16px;
+  bottom: 19px;
   z-index: 1;
 }
 
@@ -851,13 +816,15 @@ body.sticky-footer > main {
 }
 
 .quick-links a {
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
 }
 
 .quick-links a:hover {
-  color: var(--muted);
+  color: var(--text);
 }
 
 .experience {
