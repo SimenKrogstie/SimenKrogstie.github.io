@@ -927,7 +927,24 @@ body.sticky-footer > main {
 .content-section h3 {
   color: var(--name);
 }
- 
+
+.content-section p a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.content-section p a::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 0.85em;
+}
+
+.content-section p a:hover {
+  border-bottom-color: var(--muted);
+}
+
 .facts-list {
   list-style: none;
   margin: 0;
