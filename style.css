@@ -40,7 +40,7 @@ html, body {
 }
 
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Menlo, Monaco, "Courier New", monospace;
 }
 
 .container {
@@ -540,7 +540,7 @@ html, body {
 }
  
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Menlo, Monaco, "Courier New", monospace;
 }
 
 body.sticky-footer {
