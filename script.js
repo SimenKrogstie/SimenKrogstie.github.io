@@ -122,4 +122,304 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", updateActive, { passive: true });
     window.addEventListener("resize", updateActive);
   }
+
+  // Terminal typing animation on the home page. Only runs on pages that
+  // have a #terminal-body element; types the script out character by
+  // character once the terminal scrolls into view, then leaves a
+  // blinking cursor at the final prompt.
+  const terminalBody = document.getElementById("terminal-body");
+  if (terminalBody) {
+    const isNo = root.lang === "no";
+    const TERMINAL_SCRIPT = isNo
+      ? [
+          { prompt: true, text: "whoami"},
+          { prompt: false, text: "simen roko krogstie" },
+          { prompt: false, text: "" },
+          { prompt: true, text: "cat rolle.txt" },
+          { prompt: false, text: "m.sc. data science @ nmbu" },
+          { prompt: false, text: "data science intern @ tet digital" },
+          { prompt: false, text: "" },
+          { prompt: true, text: "ls prosjekter/" },
+          { prompt: false, text: "urban-mobility/" },
+          { prompt: false, text: "" },
+          { prompt: true, text: "echo $STATUS" },
+          { prompt: false, text: "åpen for muligheter ..." },
+        ]
+      : [
+          { prompt: true, text: "whoami"},
+          { prompt: false, text: "simen roko krogstie" },
+          { prompt: false, text: "" },
+          { prompt: true, text: "cat current_role.txt" },
+          { prompt: false, text: "m.sc. data science @ nmbu" },
+          { prompt: false, text: "data science intern @ tet digital" },
+          { prompt: false, text: "" },
+          { prompt: true, text: "ls projects/" },
+          { prompt: false, text: "urban-mobility/" },
+          { prompt: false, text: "" },
+          { prompt: true, text: "echo $STATUS" },
+          { prompt: false, text: "open to opportunities ..." },
+        ];
+
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    // "cd <page>" routing table. Paths are relative to the terminal's own
+    // location (index.html / index-no.html at the repo root), matching the
+    // topnav links on this same page.
+    const PAGES = {
+      home: { en: "index.html", no: "index-no.html", aliases: ["home", "~", "index"], noAliases: ["hjem"] },
+      about: { en: "about/about.html", no: "about/about-no.html", aliases: ["about"], noAliases: ["om-meg", "om"] },
+      projects: { en: "projects/projects.html", no: "projects/projects-no.html", aliases: ["projects"], noAliases: ["prosjekter"] },
+      contact: { en: "contact/contact.html", no: "contact/contact-no.html", aliases: ["contact"], noAliases: ["kontakt"] },
+      cv: { en: "cv/cv.pdf", no: "cv/cv-no.pdf", aliases: ["cv"], noAliases: [], newTab: true },
+    };
+    const ALIAS_MAP = {};
+    Object.keys(PAGES).forEach((key) => {
+      const page = PAGES[key];
+      page.aliases.forEach((alias) => { ALIAS_MAP[alias] = key; });
+      if (isNo) page.noAliases.forEach((alias) => { ALIAS_MAP[alias] = key; });
+    });
+
+    const STR = isNo
+      ? {
+          missingOperand: "cd: mangler argument",
+          hint: "prøv: hjem, om-meg, prosjekter, cv, kontakt",
+          noSuchPage: (t) => `cd: fant ingen side som heter: ${t}`,
+          opening: (p) => `åpner ${p} ...`,
+          notFound: (c) => `${c}: kommando ikke funnet`,
+          lsPages: "about/  contact/  cv  home  projects/",
+          helpLines: [
+            "kommandoer:",
+            "  cd <side>   — åpne en side (hjem, om-meg, prosjekter, cv, kontakt)",
+            "  ls pages/   — list tilgjengelige sider",
+            "  help        — vis denne meldingen",
+          ],
+          inputLabel: "Terminalkommando",
+        }
+      : {
+          missingOperand: "cd: missing operand",
+          hint: "try: home, about, projects, cv, contact",
+          noSuchPage: (t) => `cd: no such page: ${t}`,
+          opening: (p) => `opening ${p} ...`,
+          notFound: (c) => `${c}: command not found`,
+          lsPages: "about/  contact/  cv  home  projects/",
+          helpLines: [
+            "commands:",
+            "  cd <page>   — open a page (home, about, projects, cv, contact)",
+            "  ls pages/   — list available pages",
+            "  help        — show this message",
+          ],
+          inputLabel: "Terminal command input",
+        };
+
+    function scrollToBottom() {
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    function appendCursorLine(promptText) {
+      const line = document.createElement("div");
+      line.className = "terminal-line";
+      if (promptText) {
+        const prompt = document.createElement("span");
+        prompt.className = "terminal-prompt";
+        prompt.textContent = "$ ";
+        line.appendChild(prompt);
+      }
+      const cursor = document.createElement("span");
+      cursor.className = "terminal-cursor";
+      line.appendChild(cursor);
+      terminalBody.appendChild(line);
+      return cursor;
+    }
+
+    function appendOutputLine(text) {
+      const lineEl = document.createElement("div");
+      lineEl.className = "terminal-line";
+      lineEl.textContent = text;
+      terminalBody.appendChild(lineEl);
+      scrollToBottom();
+    }
+
+    function runCommand(raw) {
+      if (raw === "") {
+        appendPromptInput();
+        return;
+      }
+
+      const parts = raw.split(/\s+/);
+      const cmd = parts[0].toLowerCase();
+      const args = parts.slice(1);
+
+      if (cmd === "cd") {
+        if (args.length === 0) {
+          appendOutputLine(STR.missingOperand);
+          appendOutputLine(STR.hint);
+          appendPromptInput();
+          return;
+        }
+        const key = ALIAS_MAP[args[0].toLowerCase()];
+        if (!key) {
+          appendOutputLine(STR.noSuchPage(args[0]));
+          appendOutputLine(STR.hint);
+          appendPromptInput();
+          return;
+        }
+        const page = PAGES[key];
+        const path = isNo ? page.no : page.en;
+        appendOutputLine(STR.opening(path));
+        setTimeout(() => {
+          if (page.newTab) {
+            window.open(path, "_blank", "noopener");
+            appendPromptInput();
+          } else {
+            window.location.href = path;
+          }
+        }, 250);
+        return;
+      }
+
+      if (cmd === "ls" && (args[0] === "pages/" || args[0] === "pages")) {
+        appendOutputLine(STR.lsPages);
+        appendPromptInput();
+        return;
+      }
+
+      if (cmd === "help") {
+        STR.helpLines.forEach(appendOutputLine);
+        appendPromptInput();
+        return;
+      }
+
+      appendOutputLine(STR.notFound(parts[0]));
+      appendPromptInput();
+    }
+
+    function appendPromptInput() {
+      const line = document.createElement("div");
+      line.className = "terminal-line terminal-line--active";
+
+      const prompt = document.createElement("span");
+      prompt.className = "terminal-prompt";
+      prompt.textContent = "$ ";
+      line.appendChild(prompt);
+
+      // Cursor comes before the input in DOM order so it sits right after
+      // the prompt instead of being pushed to the far right by the input's
+      // flex-grow; it's only a placeholder shown before the input is
+      // focused (the native text caret takes over once typing starts).
+      const cursor = document.createElement("span");
+      cursor.className = "terminal-cursor";
+      line.appendChild(cursor);
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "terminal-input";
+      input.autocomplete = "off";
+      input.autocapitalize = "off";
+      input.spellcheck = false;
+      input.setAttribute("aria-label", STR.inputLabel);
+      line.appendChild(input);
+
+      terminalBody.appendChild(line);
+      scrollToBottom();
+
+      if (terminalActive) input.focus();
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        const raw = input.value.trim();
+
+        const committed = document.createElement("span");
+        committed.textContent = raw;
+        line.replaceChild(committed, input);
+        cursor.remove();
+        line.classList.remove("terminal-line--active");
+
+        runCommand(raw);
+      });
+    }
+
+    function renderFinal() {
+      terminalBody.innerHTML = "";
+      TERMINAL_SCRIPT.forEach((line) => {
+        const lineEl = document.createElement("div");
+        lineEl.className = "terminal-line";
+        if (line.prompt) {
+          const prompt = document.createElement("span");
+          prompt.className = "terminal-prompt";
+          prompt.textContent = "$ ";
+          lineEl.appendChild(prompt);
+        }
+        lineEl.append(document.createTextNode(line.text));
+        terminalBody.appendChild(lineEl);
+      });
+      appendPromptInput();
+    }
+
+    async function typeTerminal() {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) {
+        renderFinal();
+        return;
+      }
+
+      // Empty terminal with just a blinking cursor before typing starts.
+      const introCursor = appendCursorLine(false);
+      await sleep(600);
+      introCursor.parentElement.remove();
+
+      for (const line of TERMINAL_SCRIPT) {
+        const lineEl = document.createElement("div");
+        lineEl.className = "terminal-line";
+        if (line.prompt) {
+          const prompt = document.createElement("span");
+          prompt.className = "terminal-prompt";
+          prompt.textContent = "$ ";
+          lineEl.appendChild(prompt);
+        }
+        const textSpan = document.createElement("span");
+        lineEl.appendChild(textSpan);
+        terminalBody.appendChild(lineEl);
+
+        for (const char of line.text) {
+          textSpan.textContent += char;
+          await sleep(25 + Math.random() * 35);
+        }
+        await sleep(250);
+      }
+
+      appendPromptInput();
+    }
+
+    const terminalEl = terminalBody.closest(".terminal");
+
+    // Once the visitor clicks into the terminal, keep auto-focusing each
+    // new prompt after a command runs, until they click outside it again.
+    let terminalActive = false;
+    (terminalEl || terminalBody).addEventListener("click", () => {
+      terminalActive = true;
+      const activeInput = terminalBody.querySelector(".terminal-input");
+      if (activeInput) activeInput.focus();
+    });
+    document.addEventListener("click", (event) => {
+      const container = terminalEl || terminalBody;
+      if (!container.contains(event.target)) {
+        terminalActive = false;
+      }
+    });
+
+    let played = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !played) {
+            played = true;
+            typeTerminal();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(terminalEl || terminalBody);
+  }
 });
