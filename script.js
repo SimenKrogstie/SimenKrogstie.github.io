@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
           { prompt: false, text: "m.sc. data science @ nmbu" },
           { prompt: false, text: "data science intern @ tet digital" },
           { prompt: false, text: "" },
-          { prompt: true, text: "ls prosjekter/" },
+          { prompt: true, text: "ls arbeid/" },
           { prompt: false, text: "urban-mobility/" },
           { prompt: false, text: "" },
           { prompt: true, text: "echo $STATUS" },
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
           { prompt: false, text: "m.sc. data science @ nmbu" },
           { prompt: false, text: "data science intern @ tet digital" },
           { prompt: false, text: "" },
-          { prompt: true, text: "ls projects/" },
+          { prompt: true, text: "ls work/" },
           { prompt: false, text: "urban-mobility/" },
           { prompt: false, text: "" },
           { prompt: true, text: "echo $STATUS" },
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const PAGES = {
       home: { en: "index.html", no: "index-no.html", aliases: ["home", "~", "index"], noAliases: ["hjem"] },
       about: { en: "about/about.html", no: "about/about-no.html", aliases: ["about"], noAliases: ["om-meg", "om"] },
-      projects: { en: "projects/projects.html", no: "projects/projects-no.html", aliases: ["projects"], noAliases: ["prosjekter"] },
+      work: { en: "projects/projects.html", no: "projects/projects-no.html", aliases: ["work"], noAliases: ["arbeid"] },
       contact: { en: "contact/contact.html", no: "contact/contact-no.html", aliases: ["contact"], noAliases: ["kontakt"] },
       cv: { en: "cv/cv.pdf", no: "cv/cv-no.pdf", aliases: ["cv"], noAliases: [], newTab: true },
     };
@@ -182,30 +182,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const STR = isNo
       ? {
           missingOperand: "cd: mangler argument",
-          hint: "prøv: hjem, om-meg, prosjekter, cv, kontakt",
+          hint: "prøv: hjem, om-meg, arbeid, cv, kontakt",
           noSuchPage: (t) => `cd: fant ingen side som heter: ${t}`,
           opening: (p) => `åpner ${p} ...`,
           notFound: (c) => `${c}: kommando ikke funnet`,
-          lsPages: "about/  contact/  cv  home  projects/",
+          lsPages: "arbeid/  cv  hjem  kontakt/  om-meg/",
           helpLines: [
             "kommandoer:",
-            "  cd <side>   — åpne en side (hjem, om-meg, prosjekter, cv, kontakt)",
-            "  ls pages/   — list tilgjengelige sider",
+            "  cd <side>   — åpne en side (hjem, om-meg, arbeid, cv, kontakt)",
+            "  ls          — list tilgjengelige sider",
             "  help        — vis denne meldingen",
           ],
           inputLabel: "Terminalkommando",
         }
       : {
           missingOperand: "cd: missing operand",
-          hint: "try: home, about, projects, cv, contact",
+          hint: "try: home, about, work, cv, contact",
           noSuchPage: (t) => `cd: no such page: ${t}`,
           opening: (p) => `opening ${p} ...`,
           notFound: (c) => `${c}: command not found`,
-          lsPages: "about/  contact/  cv  home  projects/",
+          lsPages: "about/  contact/  cv  home  work/",
           helpLines: [
             "commands:",
-            "  cd <page>   — open a page (home, about, projects, cv, contact)",
-            "  ls pages/   — list available pages",
+            "  cd <page>   — open a page (home, about, work, cv, contact)",
+            "  ls          — list available pages",
             "  help        — show this message",
           ],
           inputLabel: "Terminal command input",
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      if (cmd === "ls" && (args[0] === "pages/" || args[0] === "pages")) {
+      if (cmd === "ls") {
         appendOutputLine(STR.lsPages);
         appendPromptInput();
         return;

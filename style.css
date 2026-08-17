@@ -900,7 +900,7 @@ body.sticky-footer > main {
   align-items: center;
   flex-wrap: wrap;
   gap: 24px;
-  margin: 0 0 32px;
+  margin: 0 0 2px;
 }
 
 .hero-cta-primary {
@@ -926,6 +926,9 @@ body.sticky-footer > main {
 }
 
 .hero-social {
+  grid-area: social;
+  align-self: center;
+  margin-top: -10px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -961,7 +964,7 @@ body.sticky-footer > main {
   border-radius: 12px;
   overflow: hidden;
   max-width: 640px;
-  margin: 28px auto;
+  margin: 38px auto 28px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
@@ -1058,24 +1061,30 @@ body.sticky-footer > main {
 }
 
 .hero-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "intro side"
+    "social side";
+  align-items: start;
+  column-gap: 40px;
+  row-gap: 0;
 }
 
 .hero-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  grid-area: side;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / 3;
+  justify-items: end;
   margin-top: 16px;
-  flex: 0 0 auto;
 }
 
 .hero-photo {
-  width: 200px;
-  height: 200px;
+  grid-row: 1;
+  align-self: start;
+  width: 230px;
+  height: 230px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--line);
@@ -1083,15 +1092,16 @@ body.sticky-footer > main {
 }
 
 .hero-row .hero-intro {
-  flex: 1;
+  grid-area: intro;
   min-width: 0;
 }
 
 .experience {
+  grid-row: 2;
+  align-self: center;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 51px;
   gap: 10px;
 }
 
@@ -1110,11 +1120,26 @@ body.sticky-footer > main {
 
 @media (max-width: 640px) {
   .hero-row {
-    flex-direction: column;
-    gap: 4px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "side"
+      "social";
+    row-gap: 4px;
+  }
+
+  .hero-cta {
+    margin-bottom: 8px;
+  }
+
+  .hero-social {
+    margin-top: 28px;
   }
 
   .hero-side {
+    display: flex;
+    grid-row: auto;
+    grid-template-rows: none;
     flex-direction: row;
     align-items: flex-start;
     margin-top: 0;
@@ -1127,6 +1152,7 @@ body.sticky-footer > main {
   }
 
   .experience {
+    align-self: flex-start;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 0;
