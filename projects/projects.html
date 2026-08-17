@@ -42,33 +42,68 @@
       <section id="projects" class="content-section">
         <h2>Work</h2>
         <p class="page-eyebrow">A selection of projects and things I've been working on.</p>
-        <div class="item" id="urban-mobility">
-          <div class="item-head">
-            <h3><a href="https://github.com/SimenKrogstie/UrbanMobility">Urban Mobility and Building Indicators</a></h3>
-          </div>
-          <ul class="small">
-            <li>Analyzed the relationship between city bike usage, land use, and building types in Ullern and Grünerløkka</li>
-            <li>Developed spatial indicators for mobility and building structure</li>
-            <li>Visualization using time series, indicator plots, and an interactive Folium map</li>
-          </ul>
-        </div>
+        <div class="project-list">
+          <a class="project-card" id="urban-mobility" href="https://github.com/SimenKrogstie/UrbanMobility" target="_blank" rel="noopener">
+            <div class="project-card-image" aria-hidden="true">UM</div>
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <h3 class="project-card-title">Urban Mobility and Building Indicators</h3>
+                <span class="project-card-type">Geospatial</span>
+              </div>
+              <p class="project-card-desc">Investigates how bike-sharing usage relates to land-use structure and building typology across Ullern and Grünerløkka in Oslo, combining Oslo Bysykkel trip data, OpenStreetMap building footprints (via OSMnx), and SSB population/district boundaries. Computes mobility and building indicators, compares daily usage profiles between districts, and presents the results through an interactive Folium map. Completed for the GMGI221 course at NMBU (autumn 2025).</p>
+              <div class="tags project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">OSMnx</span>
+                <span class="tag">Folium</span>
+                <span class="tag">Spatial Analysis</span>
+              </div>
+            </div>
+          </a>
 
-        <div class="item" id="dynamo">
-          <div class="item-head">
-            <h3><a href="#">DynaMo</a></h3>
-          </div>
-          <ul class="small">
-            <li>Coming soon</li>
-          </ul>
-        </div>
+          <a class="project-card" id="dynamo" href="https://github.com/SimenKrogstie/DynamO" target="_blank" rel="noopener">
+            <img class="project-card-image" src="../assets/MNIST.jpg" alt="MNIST dataset"/>
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <h3 class="project-card-title">DynaMo</h3>
+                <span class="project-card-type">Deep Learning/Software</span>
+              </div>
+              <p class="project-card-desc">A neural network optimization framework built for NMBU's INF202 course that uses dynamic low-rank techniques to cut the memory and compute cost of training, reducing environmental impact. Models are defined through modular TOML configs supporting both dense and low-rank layers, with a dedicated DynamicLowRankOptimizer, a GUI for training and MNIST prediction, and a CLI-driven workflow.</p>
+              <div class="tags project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Neural Networks</span>
+                <span class="tag">Low-Rank Optimization</span>
+                <span class="tag">TOML</span>
+              </div>
+            </div>
+          </a>
 
-        <div class="item" id="loadpred">
-          <div class="item-head">
-            <h3>LoadPred</h3>
+          <a class="project-card" id="weather-sentiment" href="https://github.com/SimenKrogstie/WeatherSentiment" target="_blank" rel="noopener">
+            <div class="project-card-image" aria-hidden="true">WS</div>
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <h3 class="project-card-title">WeatherSentiment</h3>
+                <span class="project-card-type">Data Science/NLP</span>
+              </div>
+              <p class="project-card-desc">Explores correlations between weather patterns and public sentiment across Europe by combining weather datasets with transformer-based sentiment scoring of social media text. Aggregates emotional tone by country over time, joins it with geographic boundary data, and produces interactive web maps with temporal controls alongside static analysis in a Jupyter notebook.</p>
+              <div class="tags project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Geospatial Visualization</span>
+                <span class="tag">Jupyter</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="project-card" id="loadpred">
+            <div class="project-card-image" aria-hidden="true">LP</div>
+            <div class="project-card-body">
+              <div class="project-card-top">
+                <h3 class="project-card-title">LoadPred</h3>
+                <span class="project-card-type">Coming soon</span>
+              </div>
+              <p class="project-card-desc">Details coming soon.</p>
+            </div>
           </div>
-          <ul class="small">
-            <li>Coming soon</li>
-          </ul>
         </div>
       </section>
 

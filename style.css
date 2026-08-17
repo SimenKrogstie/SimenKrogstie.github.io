@@ -1652,15 +1652,6 @@ li {
   font-size: 14px;
 }
 
-#projects .item,
-#prosjekter .item {
-  background: none;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  margin: 32px 0;
-}
-
 #kontakt .item p,
 #contact .item p {
   color: var(--muted);
@@ -1854,8 +1845,117 @@ li {
   color: var(--tag-text);
 }
  
+/* Project cards */
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.project-card {
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 150ms ease;
+}
+
+a.project-card:hover {
+  border-color: var(--muted);
+}
+
+.project-card-image {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--muted);
+  overflow: hidden;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.project-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.project-card-type {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.project-card-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.project-card-tags {
+  gap: 8px;
+}
+
+.project-card-tags .tag {
+  font-size: 13px;
+  padding: 4px 10px;
+}
+
+@media (max-width: 560px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-card-image {
+    width: 100%;
+    height: 140px;
+  }
+}
+
 /* Mobile */
- 
+
 @media (max-width: 720px) {
  
   .header {
