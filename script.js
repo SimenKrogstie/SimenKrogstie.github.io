@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       about: { en: "about/about.html", no: "about/about-no.html", aliases: ["about"], noAliases: ["om-meg", "om"] },
       work: { en: "projects/projects.html", no: "projects/projects-no.html", aliases: ["work"], noAliases: ["arbeid"] },
       contact: { en: "contact/contact.html", no: "contact/contact-no.html", aliases: ["contact"], noAliases: ["kontakt"] },
-      cv: { en: "cv/cv.pdf", no: "cv/cv-no.pdf", aliases: ["cv"], noAliases: [], newTab: true },
+      cv: { en: "cv/cv.html", no: "cv/cv-no.html", aliases: ["cv"], noAliases: [] },
     };
     const ALIAS_MAP = {};
     Object.keys(PAGES).forEach((key) => {
@@ -267,12 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const path = isNo ? page.no : page.en;
         appendOutputLine(STR.opening(path));
         setTimeout(() => {
-          if (page.newTab) {
-            window.open(path, "_blank", "noopener");
-            appendPromptInput();
-          } else {
-            window.location.href = path;
-          }
+          window.location.href = path;
         }, 250);
         return;
       }
