@@ -70,39 +70,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Mobile "On this page" toggle: collapses the sidebar TOC into a
+  // dropdown on narrow viewports. Inert on desktop, where CSS keeps the
+  // list always visible regardless of the "open" class.
+  const tocToggle = document.getElementById("toc-toggle");
+  const tocList = document.getElementById("toc-list");
+  if (tocToggle && tocList) {
+    const setTocOpen = (open) => {
+      tocList.classList.toggle("open", open);
+      tocToggle.setAttribute("aria-expanded", String(open));
+    };
+    tocToggle.addEventListener("click", () => {
+      setTocOpen(!tocList.classList.contains("open"));
+    });
+    tocList.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setTocOpen(false));
+    });
+  }
+
   // Sidebar scrollspy: highlights the "On this page" link for the section
   // currently in view. Only runs on pages that have a #toc-list sidebar.
-  const tocList = document.getElementById("toc-list");
   if (tocList) {
     const tocLinks = Array.from(tocList.querySelectorAll("a"));
     const sections = tocLinks
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
- 
+
     const setActive = (id) => {
       tocLinks.forEach((link) => {
         link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
       });
     };
- 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Pick the entry closest to the top of the viewport that's intersecting
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length > 0) {
-          setActive(visible[0].target.id);
+
+    // Marker line just below the sticky topnav: the active section is
+    // whichever one's heading last crossed above it.
+    const MARKER = 120;
+
+    const updateActive = () => {
+      let current = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= MARKER) {
+          current = section;
+        } else {
+          break;
         }
-      },
-      {
-        // Counts a section as "current" once it's near the top of the viewport,
-        // just below the sticky topnav.
-        rootMargin: "-88px 0px -70% 0px",
-        threshold: 0,
       }
-    );
- 
-    sections.forEach((section) => observer.observe(section));
+      if (current) setActive(current.id);
+    };
+
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("resize", updateActive);
   }
 });

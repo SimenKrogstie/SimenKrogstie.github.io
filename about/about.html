@@ -19,7 +19,7 @@
       <div class="topnav-links" id="topnav-links">
         <a href="../index.html">Home</a>
         <a href="about.html" class="active">About</a>
-        <a href="#projects">Projects</a>
+        <a href="../projects/projects.html">Projects</a>
         <a href="../cv/cv.pdf" target="_blank" rel="noopener">CV</a>
         <a href="../contact/contact.html">Contact</a>
       </div>
@@ -35,7 +35,26 @@
     </div>
   </nav>
 
-  <main class="container page-layout">
+  <main class="container page-layout has-sidebar">
+
+    <aside class="sidebar">
+      <button type="button" id="toc-toggle" class="toc-toggle sidebar-label" aria-expanded="false" aria-controls="toc-list">
+        On this page
+        <svg class="toc-toggle-icon" viewBox="0 -960 960 960" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+      </button>
+      <ul class="sidebar-list" id="toc-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li class="sidebar-sub"><a href="#wageningen">Wageningen University &amp; Research</a></li>
+        <li><a href="#experience">Work Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#volunteering">Volunteering</a></li>
+        <li><a href="#beyond-tech">Beyond Tech</a></li>
+        <li><a href="#military">Military</a></li>
+        <li><a href="#additional">Additional</a></li>
+        <li><a href="#motivation">Motivation</a></li>
+      </ul>
+    </aside>
 
     <div class="content">
 
@@ -47,7 +66,7 @@
           My name is Simen, a final-year Master's student in Data Science with a specialization in
           Geoinformatics at NMBU. I like building solutions that combine machine learning,
           spatial analysis, and automation — I've worked on projects ranging from image analysis to
-          <a href="#urban-mobility">spatial mobility indicators</a> and GIS processes.
+          <a href="../projects/projects.html#urban-mobility">spatial mobility indicators</a> and GIS processes.
           In spring 2026, I went on exchange at <a href="https://www.wur.nl/en" target="_blank" rel="noopener">Wageningen University</a>,
           where I deepened my background in remote sensing and geoinformatics.
         </p>
@@ -60,61 +79,54 @@
           non-technical audiences.
         </p>
 
-        <p>
-          As I finish my degree, I'm looking for opportunities to apply data science and machine
-          learning to solve real-world problems efficiently — open to roles as a data scientist
-          across industries, not just geospatial ones. Always happy to connect with others working
-          in data science, ML, or AI.
-        </p>
-
         <p class="sidebar-label" style="margin-top:28px;">Quick facts</p>
         <ul class="facts-list">
           <li>M.Sc. Data Science @ NMBU</li>
-          <li>Exchange @ Wageningen University (WUR)</li>
+          <li>Exchange semester @ Wageningen University (WUR)</li>
+          <li>Data science Intern @ Tet digital</li>
           <li>Teaching Assistant, MLA210 @ NMBU</li>
           <li>Banking Advisor @ Grue Sparebank</li>
-          <li>Head of Events @ Samfunnet i Ås</li>
         </ul>
       </section>
 
+      <div class="category-divider"><span>Professional</span></div>
+
       <section id="education" class="content-section">
         <h2>Education</h2>
-        <div class="item">
+        <div class="item item--plain">
           <div class="role">
+            <h3>Norwegian University of Life Sciences (NMBU)</h3>
             <div class="role-head">
-              <h3><strong>M.Sc. Data Science</strong> @ NMBU</h3>
+              <p class="degree">M.Sc. Data Science (Expected 2027)</p>
               <span class="meta">2022 – 2027</span>
             </div>
-            <p>Applied machine learning, deep learning, geodesy, photogrammetry, automation of GIS processes.</p>
+            <p class="specialization">Specialization in Geoinformatics</p>
+            <p>Fourth-year master's student in data science, with experience in machine learning,
+              deep learning, image analysis, spatial analysis, and automation of GIS processes.</p>
+
+            <p class="sidebar-label" style="margin-top:16px;">Areas of focus</p>
+            <p class="tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Image Analysis</span>
+              <span class="tag">Spatial Analysis</span>
+              <span class="tag">GIS Automation</span>
+            </p>
           </div>
           <div class="divider"></div>
-          <div class="role">
+          <div class="role" id="wageningen">
+            <h3>Wageningen University &amp; Research (WUR)</h3>
             <div class="role-head">
-              <h3><strong>Exchange</strong> @ Wageningen University and Research</h3>
+              <p class="degree">Exchange student, Data Science &amp; Geoinformatics</p>
               <span class="meta">01.2026 – 05.2026</span>
             </div>
-            <p>Data Science for Smart Environments, Statistics for Data Scientists, Remote Sensing.</p>
           </div>
-        </div>
-      </section>
-
-      <section id="projects" class="content-section">
-        <h2>Projects</h2>
-        <div class="item" id="urban-mobility">
-          <div class="item-head">
-            <h3>🌐 <a href="https://github.com/SimenKrogstie/UrbanMobility">Urban Mobility and Building Indicators</a></h3>
-          </div>
-          <ul class="small">
-            <li>Analyzed the relationship between city bike usage, land use, and building types in Ullern and Grünerløkka</li>
-            <li>Developed spatial indicators for mobility and building structure</li>
-            <li>Visualization using time series, indicator plots, and an interactive Folium map</li>
-          </ul>
         </div>
       </section>
 
       <section id="experience" class="content-section">
         <h2>Work Experience</h2>
-        <div class="item">
+        <div class="item item--plain">
           <div class="role">
             <div class="role-head">
               <h3><strong>Teaching Assistant, MLA210</strong> @ NMBU</h3>
@@ -132,11 +144,6 @@
         <p><a href="../cv/cv.html#experience">See full work experience on the CV page →</a></p>
       </section>
 
-      <section id="volunteering" class="content-section">
-        <h2>Volunteering</h2>
-        <p>Head of Events, Head of Security, and Security @ Samfunnet i Ås, 2022 – present.</p>
-      </section>
-
       <section id="skills" class="content-section">
         <h2>Skills</h2>
         <p class="tags">
@@ -147,6 +154,49 @@
           <span class="tag">QGIS</span>
           <span class="tag">ArcGIS Pro</span>
         </p>
+      </section>
+
+      <div class="category-divider"><span>Personal</span></div>
+
+      <section id="volunteering" class="content-section">
+        <h2>Volunteering</h2>
+        <p>Head of Events, Head of Security, and Security @ Samfunnet i Ås, 2022 – present.</p>
+      </section>
+
+      <section id="beyond-tech" class="content-section">
+        <h2>Beyond Tech</h2>
+        <p>In my free time, I enjoy being outdoors, ranging from running to hiking in the
+          mountains, both in summer and winter.</p>
+      </section>
+
+      <section id="military" class="content-section">
+        <h2>Military</h2>
+        <div class="item item--plain">
+          <div class="role">
+            <div class="role-head">
+              <h3><strong>Ranger, Second-in-Command of Patrol</strong> @ Ranger Battalion, Garrison of Sør-Varanger (GSV)</h3>
+              <span class="meta">08.2021 – 07.2022</span>
+            </div>
+            <p>Norwegian Army border ranger service along the Norwegian–Russian border.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="additional" class="content-section">
+        <h2>Additional</h2>
+        <p class="sidebar-label">Languages</p>
+        <ul class="facts-list">
+          <li>Norwegian — Native</li>
+          <li>English — Fluent, written and spoken</li>
+        </ul>
+      </section>
+
+      <section id="motivation" class="content-section">
+        <h2>Motivation</h2>
+        <p>As I finish my degree, I'm looking for opportunities to apply data science and machine
+          learning to solve real-world problems efficiently — open to roles as a data scientist
+          across industries, not just geospatial ones. Always happy to connect with others working
+          in data science, ML, or AI.</p>
       </section>
 
     </div>
