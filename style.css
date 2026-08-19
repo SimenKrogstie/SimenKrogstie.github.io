@@ -1947,12 +1947,17 @@ a.project-card:hover {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.cv-header-info {
   min-width: 0;
 }
 
 .cv-avatar {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--line);
@@ -2096,11 +2101,28 @@ a.project-card:hover {
 
 @media (max-width: 640px) {
   .cv-header {
+    position: relative;
     flex-direction: column;
   }
 
+  .cv-header-left {
+    width: 100%;
+    padding-right: 60px;
+  }
+
   .cv-download-btn {
-    align-self: flex-start;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .cv-download-btn-label {
+    display: none;
   }
 
   .cv-row {
