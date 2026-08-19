@@ -1150,10 +1150,10 @@ body.sticky-footer > main {
 
   .hero-photo {
     position: absolute;
-    top: 62px;
+    top: 60px;
     right: 0;
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
   }
 
   .experience {
