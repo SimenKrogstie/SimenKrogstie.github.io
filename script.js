@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const PAGES = {
       home: { en: "index.html", no: "index-no.html", aliases: ["home", "~", "index"], noAliases: ["hjem"] },
       about: { en: "about/about.html", no: "about/about-no.html", aliases: ["about"], noAliases: ["om-meg", "om"] },
-      work: { en: "projects/projects.html", no: "projects/projects-no.html", aliases: ["work"], noAliases: ["arbeid"] },
+      work: { en: "work/work.html", no: "work/work-no.html", aliases: ["work"], noAliases: ["arbeid"] },
       contact: { en: "contact/contact.html", no: "contact/contact-no.html", aliases: ["contact"], noAliases: ["kontakt"] },
       cv: { en: "cv/cv.html", no: "cv/cv-no.html", aliases: ["cv"], noAliases: [] },
     };

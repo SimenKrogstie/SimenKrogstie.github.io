@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="no">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arbeid - Simen Roko Krogstie</title>
-  <meta name="description" content="Arbeid av Simen Roko Krogstie." />
+  <title>Work - Simen Roko Krogstie</title>
+  <meta name="description" content="Work by Simen Roko Krogstie." />
   <link rel="stylesheet" href="../style.css" />
   <script src="../script.js" defer></script>
 </head>
@@ -12,23 +12,23 @@
 
   <nav class="topnav">
     <div class="container topnav-inner">
-      <a class="topnav-name" href="../index-no.html">Simen&nbsp;Roko Krogstie</a>
-      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Åpne meny" aria-expanded="false" aria-controls="topnav-links">
+      <a class="topnav-name" href="../index.html">Simen&nbsp;Roko Krogstie</a>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="topnav-links">
         <svg viewBox="0 -960 960 960" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
       </button>
       <div class="topnav-links" id="topnav-links">
-        <a href="../index-no.html">Hjem</a>
-        <a href="projects-no.html" class="active">Arbeid</a>
-        <a href="../about/about-no.html">Om meg</a>
-        <a href="../cv/cv-no.html">CV</a>
-        <a href="../contact/contact-no.html">Kontakt</a>
+        <a href="../index.html">Home</a>
+        <a href="work.html" class="active">Work</a>
+        <a href="../about/about.html">About</a>
+        <a href="../cv/cv.html">CV</a>
+        <a href="../contact/contact.html">Contact</a>
       </div>
       <div class="topnav-utils">
-        <a href="../index-no.html" class="home-link icon-btn" aria-label="Hjem">
+        <a href="../index.html" class="home-link icon-btn" aria-label="Home">
           <span class="icon-circle"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
         </a>
-        <a href="projects.html" class="lang-link" aria-label="Bytt til engelsk">EN</a>
-        <button id="theme-toggle" class="lang-link icon-btn" type="button" aria-label="Bytt til mørk modus">
+        <a href="work-no.html" class="lang-link" aria-label="Switch to Norwegian">NO</a>
+        <button id="theme-toggle" class="lang-link icon-btn" type="button" aria-label="Toggle dark mode">
           <span class="icon-circle"><svg viewBox="0 -960 960 960" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg></span>
         </button>
       </div>
@@ -39,9 +39,9 @@
 
     <div class="content">
 
-      <section id="prosjekter" class="content-section">
-        <h2>Arbeid</h2>
-        <p class="page-eyebrow">Et utvalg av prosjekter og ting jeg har jobbet med.</p>
+      <section id="projects" class="content-section">
+        <h2>Work</h2>
+        <p class="page-eyebrow">A selection of projects and things I've been working on.</p>
         <div class="project-list">
           <a class="project-card" id="urban-mobility" href="https://github.com/SimenKrogstie/UrbanMobility" target="_blank" rel="noopener">
             <div class="project-card-image" aria-hidden="true">UM</div>
@@ -50,28 +50,28 @@
                 <h3 class="project-card-title">Urban Mobility and Building Indicators</h3>
                 <span class="project-card-type">Geospatial</span>
               </div>
-              <p class="project-card-desc">Undersøker hvordan bysykkelbruk henger sammen med arealbruk og bygningstypologi i Ullern og Grünerløkka i Oslo, ved å kombinere sykkeldata fra Oslo Bysykkel, bygningsomriss fra OpenStreetMap (via OSMnx) og befolknings-/bydelsdata fra SSB. Beregner mobilitets- og bygningsindikatorer, sammenligner daglige bruksmønstre mellom bydelene, og presenterer resultatene gjennom et interaktivt Folium-kart. Gjennomført som del av emnet GMGI221 ved NMBU (høsten 2025).</p>
+              <p class="project-card-desc">Investigates how bike-sharing usage relates to land-use structure and building typology across Ullern and Grünerløkka in Oslo, combining Oslo Bysykkel trip data, OpenStreetMap building footprints (via OSMnx), and SSB population/district boundaries. Computes mobility and building indicators, compares daily usage profiles between districts, and presents the results through an interactive Folium map. Completed for the GMGI221 course at NMBU (autumn 2025).</p>
               <div class="tags project-card-tags">
                 <span class="tag">Python</span>
                 <span class="tag">OSMnx</span>
                 <span class="tag">Folium</span>
-                <span class="tag">Romlig analyse</span>
+                <span class="tag">Spatial Analysis</span>
               </div>
             </div>
           </a>
 
           <a class="project-card" id="dynamo" href="https://github.com/SimenKrogstie/DynamO" target="_blank" rel="noopener">
-            <img class="project-card-image" src="../assets/MNIST.jpg" alt="MNIST-datasettet"/>
+            <img class="project-card-image" src="../assets/MNIST.jpg" alt="MNIST dataset"/>
             <div class="project-card-body">
               <div class="project-card-top">
                 <h3 class="project-card-title">DynaMo</h3>
                 <span class="project-card-type">Deep Learning/Software</span>
               </div>
-              <p class="project-card-desc">Et rammeverk for optimalisering av nevrale nettverk, utviklet til NMBUs INF202-kurs, som bruker dynamiske lav-rang-teknikker for å redusere minne- og beregningsbehovet ved trening og dermed det miljømessige fotavtrykket. Modeller defineres gjennom modulære TOML-konfigurasjoner som støtter både tette og lav-rang-lag, med en egen DynamicLowRankOptimizer, et GUI for trening og MNIST-prediksjon, og en CLI-drevet arbeidsflyt.</p>
+              <p class="project-card-desc">A neural network optimization framework built for NMBU's INF202 course that uses dynamic low-rank techniques to cut the memory and compute cost of training, reducing environmental impact. Models are defined through modular TOML configs supporting both dense and low-rank layers, with a dedicated DynamicLowRankOptimizer, a GUI for training and MNIST prediction, and a CLI-driven workflow.</p>
               <div class="tags project-card-tags">
                 <span class="tag">Python</span>
-                <span class="tag">Nevrale nettverk</span>
-                <span class="tag">Lav-rang-optimalisering</span>
+                <span class="tag">Neural Networks</span>
+                <span class="tag">Low-Rank Optimization</span>
                 <span class="tag">TOML</span>
               </div>
             </div>
@@ -84,11 +84,11 @@
                 <h3 class="project-card-title">WeatherSentiment</h3>
                 <span class="project-card-type">Data Science/NLP</span>
               </div>
-              <p class="project-card-desc">Undersøker sammenhengen mellom værmønstre og offentlig sentiment i Europa ved å kombinere værdata med transformer-basert sentimentscoring av sosiale medier-tekst. Aggregerer følelsesmessig tone per land over tid, kobler det med geografiske grensedata, og produserer interaktive vebkart med tidskontroller i tillegg til statisk analyse i en Jupyter-notatbok.</p>
+              <p class="project-card-desc">Explores correlations between weather patterns and public sentiment across Europe by combining weather datasets with transformer-based sentiment scoring of social media text. Aggregates emotional tone by country over time, joins it with geographic boundary data, and produces interactive web maps with temporal controls alongside static analysis in a Jupyter notebook.</p>
               <div class="tags project-card-tags">
                 <span class="tag">Python</span>
                 <span class="tag">NLP</span>
-                <span class="tag">Geospatial visualisering</span>
+                <span class="tag">Geospatial Visualization</span>
                 <span class="tag">Jupyter</span>
               </div>
             </div>
@@ -99,9 +99,9 @@
             <div class="project-card-body">
               <div class="project-card-top">
                 <h3 class="project-card-title">LoadPred</h3>
-                <span class="project-card-type">Kommer snart</span>
+                <span class="project-card-type">Coming soon</span>
               </div>
-              <p class="project-card-desc">Detaljer kommer snart.</p>
+              <p class="project-card-desc">Details coming soon.</p>
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@
       <p class="footer-links">
         <a href="https://github.com/SimenKrogstie" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/simen-krogstie/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:simenkrogstie@gmail.com">E-post</a>
-        <a href="tel:+4791590886">Telefon</a>
+        <a href="mailto:simenkrogstie@gmail.com">Email</a>
+        <a href="tel:+4791590886">Phone</a>
       </p>
     </div>
   </footer>
